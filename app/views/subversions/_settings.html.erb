@@ -1,0 +1,28 @@
+<table>
+  <tbody>
+  <tr>
+    <th>Product Custom Field </th>
+    <td>
+      <%= select_tag "settings[product_custom_field]", options_for_select(VersionCustomField.where(field_format: 'string').pluck(:name, :id), selected: @settings['product_custom_field']) %>
+    </td>
+  </tr>
+  <tr>
+    <th>Major Version Number Custom Field </th>
+    <td>
+      <%= select_tag "settings[major_version_custom_field]", options_for_select(VersionCustomField.where(field_format: 'string').pluck(:name, :id), selected: @settings['major_version_custom_field']) %>
+    </td>
+  </tr>
+  <tr>
+    <th>Minor Version Number Custom Field </th>
+    <td>
+      <%= select_tag "settings[minor_version_custom_field]", options_for_select(VersionCustomField.where(field_format: 'string').pluck(:name, :id), selected: @settings['minor_version_custom_field']) %>
+    </td>
+  </tr>
+  <tr>
+    <th>Prefix Bug Fixing Custom Field </th>
+    <td>
+      <%= select_tag "settings[qf_custom_field]", options_for_select(VersionCustomField.where(field_format: 'string').pluck(:name, :id), selected: @settings['qf_custom_field']) %>
+    </td>
+  </tr>
+  </tbody>
+</table>

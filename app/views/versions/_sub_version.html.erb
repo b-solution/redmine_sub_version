@@ -1,0 +1,3 @@
+<% if @version.parent_id.blank? %>
+  <%= link_to 'Add Subversion', create_subversion_project_version_path( @project, @version), class: 'icon icon-add' %>
+<% end %>
