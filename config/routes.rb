@@ -7,5 +7,6 @@ resources :project, only: [] do
       get '/create_subversion', to: "subversions#create"
     end
   end
-
 end
+
+resources :subversions, only: [:update, :destroy], controller: :versions

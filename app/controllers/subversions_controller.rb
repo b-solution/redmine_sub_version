@@ -4,7 +4,7 @@ class SubversionsController < ApplicationController
 
   def create
     @version = @project.versions.find(params[:id])
-    Subversion.create_subversion(@version)
+    Version.create_subversion(@version)
     redirect_to project_versions_path(@project)
   rescue ActiveRecord::RecordNotFound
     render_404

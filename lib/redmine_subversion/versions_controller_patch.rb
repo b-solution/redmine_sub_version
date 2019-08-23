@@ -11,8 +11,8 @@ module RedmineSubversion
 
     module InstanceMethods
       def destroy_with_change
-        if @version.deletable?
-          Issue.where(fixed_version_id: @version.id).update_all({fixed_version_id: (@version.next_version&.id || @version.parent&.id)})
+        if @version.deletable? || @version.parent_id.present?
+          Issue.where(fixed_version_id: @version.id).update_all({fixed_version_id: (@version.next_version&.id || @version.parent&.id)}) if @version.parent_id.present?
           @version.destroy
           respond_to do |format|
             format.html { redirect_back_or_default settings_project_path(@project, :tab => 'versions') }
